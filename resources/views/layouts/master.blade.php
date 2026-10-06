@@ -14,7 +14,7 @@ $permision[] = $permission->permission_name;
 //exit;
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
     <!--
     TMgymNeJK1
@@ -32,11 +32,11 @@ $permision[] = $permission->permission_name;
         ===
     -->
     <meta charset="utf-8">
-    <title>@if(Session::get('inName')=='') Ict Innovations School @else {{Session::get('inName')}} @endif</title>
+    <title>حقيبة المعلم الرقمية المتميزة @if(Session::get('inName')!='') — {{Session::get('inName')}} @endif</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}" />
 
-    <meta name="description" content="">
+    <meta name="description" content="حقيبة المعلم الرقمية المتميزة — نظام إدارة مدرسي رقمي متكامل">
     <meta name="author" content="">
 
     <!-- The styles -->
@@ -89,6 +89,23 @@ window.addEventListener('keydown',function(e){if(e.keyIdentifier=='U+000A'||e.ke
 
     @yield("style")
     <style media="screen">
+  /* حقيبة المعلم الرقمية المتميزة — visual identity */
+  :root{--teacher-primary:#2563eb;--teacher-primary-dark:#1e40af;--teacher-accent:#06b6d4;--teacher-ink:#0f172a;--teacher-muted:#64748b;--teacher-bg:#f4f7fb;}
+  body{background:var(--teacher-bg);color:var(--teacher-ink);}
+  .menu-sid2,.menu-sidebar2{direction:rtl;}
+  .page-container2,.main-content{direction:rtl;}
+  .logo a{display:block;text-decoration:none;}
+  .logo h2{font-family:"Tajawal","Cairo",sans-serif;font-weight:800;letter-spacing:-.4px;}
+  .logo:after{content:"حقيبة المعلم الرقمية المتميزة";display:block;color:rgba(255,255,255,.78);font-size:11px;padding:0 18px 10px;font-family:"Tajawal","Cairo",sans-serif;}
+  .navbar-sidebar2 a,.navbar-sidebar2 li{font-family:"Tajawal","Cairo",sans-serif;}
+  .navbar-sidebar2 .active>a{background:linear-gradient(135deg,var(--teacher-primary),var(--teacher-primary-dark));border-radius:8px;margin:2px 8px;}
+  .box,.homepage-box,.top-block{border-radius:12px;}
+  .box{box-shadow:0 8px 24px rgba(15,23,42,.07);border:1px solid #e8eef7;}
+  .box-header.well{border-radius:12px 12px 0 0;}
+  .top-block{transition:transform .18s ease,box-shadow .18s ease;}
+  .top-block:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(37,99,235,.12);}
+  @media(max-width:767px){.logo h2{font-size:18px;}.box-content{padding:18px!important;}}
+  @import url("https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Tajawal:wght@400;500;700;800&display=swap");
   b {
     color:red
   }
