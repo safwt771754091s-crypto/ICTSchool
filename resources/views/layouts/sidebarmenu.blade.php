@@ -5,7 +5,7 @@
   <a  class="js-arrow" href="#">
     
     @if(Session::get('inName')=='')
-    <img src="images/icon/logo-white.png" alt="CoolAdmin" />
+    <div style="font-family:Tajawal,Cairo,sans-serif;color:#fff;font-size:19px;font-weight:800;line-height:1.35;padding:8px 14px;">حقيبة المعلم<br>الرقمية المتميزة</div>
     @else
       <h2>{{Session::get('inName')}}</h2>
     @endif
@@ -22,13 +22,13 @@
 <nav class="navbar-sidebar2">
   <ul class="list-unstyled navbar__list">
 
-    <li class="{{ Request::is('dashboard') ? 'active' : '' }} has-sub"><a class="js-arrow" href="{{url('/dashboard')}}"> <i class="fas fa-tachometer-alt"></i><span> Dashboard</span></a>
+    <li class="{{ Request::is('dashboard') ? 'active' : '' }} has-sub"><a class="js-arrow" href="{{url('/dashboard')}}"> <i class="fas fa-tachometer-alt"></i><span> لوحة التحكم</span></a>
     </li>
     @if (Session::get('userRole') =="Director")
       <li class="has-sub">
-        <a  class="js-arrow" href="#"><i class="glyphicon glyphicon-cog"></i><span> Settings</span></a>
+        <a  class="js-arrow" href="#"><i class="glyphicon glyphicon-cog"></i><span> الإعدادات</span></a>
         <ul class="list-unstyled navbar__sub-list js-sub-list">
-          <li><a href="{{url('/branches')}}">Branches</a></li>
+          <li><a href="{{url('/branches')}}">الفروع</a></li>
         </ul>
       </li>
     @endif
@@ -38,23 +38,23 @@
       <li class="has-sub">
         <a  class="js-arrow {{ Request::is('teacher/*') ? 'open' : '' }}" href="#">
           <i class="glyphicon glyphicon-text-width"></i>
-          Teacher
+          المعلم
           <span class="arrow {{ Request::is('teacher/*') ? 'up' : '' }}">
             <i class="fas fa-angle-down"></i> 
           </span>
         </a>
         <ul class="list-unstyled navbar__sub-list js-sub-list" style="display:{{ Request::is('teacher/*') ? 'block' : 'none' }} ;">
           @if(in_array('add_teacher_bulk_add',$permision))
-            <li class="{{ Request::is('teacher/create-file') ? 'active' : '' }}"><a href="{{url('/teacher/create-file')}}">Add from file</a></li>
+            <li class="{{ Request::is('teacher/create-file') ? 'active' : '' }}"><a href="{{url('/teacher/create-file')}}">إضافة من ملف</a></li>
           @endif
           @if(in_array('teacher_add',$permision))
-            <li class="{{ Request::is('teacher/create') ? 'active' : '' }}"><a href="{{url('/teacher/create')}}">Add New</a></li>
+            <li class="{{ Request::is('teacher/create') ? 'active' : '' }}"><a href="{{url('/teacher/create')}}">إضافة جديد</a></li>
           @endif
           @if(in_array('teacher_view',$permision))
-            <li class="{{ Request::is('teacher/list') ? 'active' : '' }}"><a href="{{url('/teacher/list')}}">Teacher List</a></li>
+            <li class="{{ Request::is('teacher/list') ? 'active' : '' }}"><a href="{{url('/teacher/list')}}">قائمة المعلمين</a></li>
           @endif
           @if(in_array('teacher_timetable_add',$permision))
-            <li class="{{ Request::is('teacher/create-timetable') ? 'active' : '' }}"><a href="{{url('/teacher/create-timetable')}}">Timetable Management</a></li>
+            <li class="{{ Request::is('teacher/create-timetable') ? 'active' : '' }}"><a href="{{url('/teacher/create-timetable')}}">إدارة الجدول الدراسي</a></li>
           @endif
         </ul>
       </li>
@@ -73,7 +73,7 @@
           <li class="has-sub {{ Request::is('class/create') ? 'active' : '' }}"><a href="{{url('/class/create')}}">Add New</a></li>
                     @endif
           @if( in_array('class_update',$permision) || in_array('class_delete',$permision) || in_array('class_view',$permision))
-          <li class="has-sub {{ Request::is('class/list') ? 'active' : '' }}"><a href="{{url('/class/list')}}">Class List</a></li>
+          <li class="has-sub {{ Request::is('class/list') ? 'active' : '' }}"><a href="{{url('/class/list')}}">الفصول</a></li>
           @endif
         </ul>
       </li>
@@ -92,7 +92,7 @@
           
           @endif
           @if(in_array('section_view',$permision))
-            <li class="{{ Request::is('section/list') ? 'active' : '' }}"><a href="{{url('/section/list')}}">Section List</a></li>
+            <li class="{{ Request::is('section/list') ? 'active' : '' }}"><a href="{{url('/section/list')}}">الشُعب</a></li>
           @endif
         </ul>
       </li>
@@ -101,7 +101,7 @@
       <li class="has-sub">
         <a  class="js-arrow {{ Request::is('student/*') ? 'open' : '' }}" href="#">
           <i class="glyphicon glyphicon-user"></i>
-          Student Information
+          بيانات الطلاب
           <span class="arrow {{ Request::is('student/*') ? 'up' : '' }}">
             <i class="fas fa-angle-down"></i> 
           </span>
@@ -111,17 +111,17 @@
             <li class="{{ Request::is('student/create-file') ? 'active' : '' }}"><a href="{{url('/student/create-file')}}">Add from file</a></li>
           @endif
           @if(in_array('student_add',$permision))
-            <li class="{{ Request::is('student/create') ? 'active' : '' }}"><a href="{{url('/student/create')}}">Student Admission</a></li>
+            <li class="{{ Request::is('student/create') ? 'active' : '' }}"><a href="{{url('/student/create')}}">قبول طالب</a></li>
           @endif
           @if(in_array('student_view',$permision))
-            <li class="{{ Request::is('student/list') ? 'active' : '' }}"><a href="{{url('/student/list')}}">Student Detail</a></li>
+            <li class="{{ Request::is('student/list') ? 'active' : '' }}"><a href="{{url('/student/list')}}">بيانات الطلاب</a></li>
           @endif
           @if(family_check()=='on')
-            <li class="{{ Request::is('family/list') ? 'active' : '' }}"><a href="{{url('/family/list')}}">Guardian Detail</a></li>
+            <li class="{{ Request::is('family/list') ? 'active' : '' }}"><a href="{{url('/family/list')}}">بيانات أولياء الأمور</a></li>
           @endif
         {{--@if(in_array('promote_student',$permision) )
         <li class="{{ Request::is('promotion') ? 'active' : '' }} has-sub">
-          <a href="{{url('/promotion')}}"><i class="glyphicon glyphicon-arrow-up"></i><span> Promotion</span></a>
+          <a href="{{url('/promotion')}}"><i class="glyphicon glyphicon-arrow-up"></i><span> الترقية</span></a>
         </li>
       @endif--}}
         </ul>
@@ -133,7 +133,7 @@
         --}}
         <a  class="js-arrow @if(Request::is('subject/*', 'section/*','promotion','class/*')) open @endif" href="#">
           <i class="glyphicon glyphicon-book"></i>
-          <!-- Subject --> Academics
+          <!-- Subject --> المواد الدراسية
           {{--<span class="arrow {{ Request::is('subject/*','class/*','promotion') ? 'up' : '' }}"><i class="fas fa-angle-down"></i> </span>
           --}}
           <span class="arrow  @if(Request::is('subject/*', 'section/*','class/*','promotion')) up @endif"><i class="fas fa-angle-down"></i> </span>
@@ -143,7 +143,7 @@
             <li class="{{ Request::is('subject/create') ? 'active' : '' }}"><a href="{{url('/subject/create')}}">Add New</a></li>
           @endif --}} 
           @if(in_array('subject_view',$permision)) 
-            <li class="{{ Request::is('subject/list') ? 'active' : '' }}"><a href="{{url('/subject/list')}}">Subject</a></li>
+            <li class="{{ Request::is('subject/list') ? 'active' : '' }}"><a href="{{url('/subject/list')}}">المواد</a></li>
           @endif
           @if(in_array('section_view',$permision))
             <li class="{{ Request::is('section/list') ? 'active' : '' }}"><a href="{{url('/section/list')}}">Section List</a></li>
