@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
     <!--
         ===
@@ -16,13 +16,13 @@
         ===
     -->
     <meta charset="utf-8">
-    <title>School Manage</title>
+    <title>حقيبة المعلم الرقمية المتميزة</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
+    <meta name="description" content="حقيبة المعلم الرقمية المتميزة — نظام إدارة مدرسي رقمي متكامل">
     <meta name="author" content="">
 
     <!-- The styles -->
-    <link id="bs-css" href="css/bootstrap-cerulean.min.css" rel="stylesheet">
+    <link id="bs-css" href="css/bootstrap-cerulean.min.css" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
 
     <link href="css/charisma-app.css" rel="stylesheet">
 
@@ -40,13 +40,13 @@
 
 </head>
 
-<body>
+<body style="background:linear-gradient(135deg,#eff6ff 0%,#f8fafc 55%,#ecfeff 100%);font-family:Tajawal,Cairo,sans-serif;">
 <div class="ch-container">
     <div class="row">
 
         <div class="row">
             <div class="col-md-12 center login-header">
-                <h2>Welcome to "{{$institute->name}}"</h2>
+                <h2 style="font-weight:800;color:#0f172a;">حقيبة المعلم الرقمية المتميزة</h2><p style="color:#64748b;">نظام الإدارة المدرسية الرقمي</p>
             </div>
             <!--/span-->
         </div><!--/row-->
@@ -60,20 +60,20 @@
 
                     </div>
                 @endif
-                <img src="img/logo.png" style="height:120px;">
+                <div style="margin:0 auto 18px;width:96px;height:96px;border-radius:24px;background:linear-gradient(135deg,#2563eb,#06b6d4);display:flex;align-items:center;justify-content:center;color:#fff;font-size:38px;box-shadow:0 12px 30px rgba(37,99,235,.22);"><i class="glyphicon glyphicon-education"></i></div>
 
                 <form class="form-horizontal" action="users/login" method="post">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <fieldset>
                         <div class="input-group input-group-lg">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-user red"></i></span>
-                            <input type="text" class="form-control" name="login" placeholder="Username">
+                            <input type="text" class="form-control" name="login" placeholder="اسم المستخدم">
                         </div>
                         <div class="clearfix"></div><br>
 
                         <div class="input-group input-group-lg">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-lock red"></i></span>
-                            <input type="password" class="form-control" name="password" placeholder="Password">
+                            <input type="password" class="form-control" name="password" placeholder="كلمة المرور">
                         </div>
                         <div class="clearfix"></div>
 
@@ -88,7 +88,7 @@
 
 
                         <p class="center col-md-5">
-                            <button type="submit" class="btn btn-primary">Login</button>
+                            <button type="submit" class="btn btn-primary">دخول</button>
                         </p>
                     </fieldset>
                 </form>
